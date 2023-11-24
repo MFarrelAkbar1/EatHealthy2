@@ -113,6 +113,7 @@
                             <TextBlock Text="2. Masukkan tomat, garam, gula pasir, lada, dan kaldu bubuk. Aduk rata."/>
                             <TextBlock Text="3. Masukkan tauge, aduk hingga layu."/>
                             <TextBlock Text="4. Angkat dan hidangkan."/>
+                            <TextBlock Text="5. Tumis Toge Siap Disantap."/>
                         </StackPanel>
                     </TabItem>
                 </TabControl>
