@@ -1,0 +1,38 @@
+﻿<Window x:Class="EatHealthyWPF.PelacakanCairan"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Pelacakan Asupan Cairan" Height="350" Width="525">
+    <Grid Margin="10">
+        <StackPanel>
+            <TextBlock Text="Pelacakan Asupan Cairan" FontSize="18" FontWeight="Bold" Margin="0,0,0,20"/>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Content="Jumlah Air Minum (ml):" FontWeight="Bold"/>
+                <TextBox x:Name="TxtJumlahAirMinum" Width="100" Height="25" Grid.Column="2"/>
+            </Grid>
+
+            <Grid Margin="0,10,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Content="Jenis Minuman:" FontWeight="Bold"/>
+                <ComboBox Name="CmbJenisMinuman" Width="150" Height="25" Grid.Column="2">
+                    <ComboBoxItem Content="Air Putih"/>
+                    <ComboBoxItem Content="Jus Buah"/>
+                    <ComboBoxItem Content="Minuman Bersoda"/>
+                </ComboBox>
+            </Grid>
+
+            <Button Content="Catat Asupan Cairan" Width="150" Height="30" Click="CatatAsupanCairan_Click" Margin="20,60,10,0"/>
+        </StackPanel>
+    </Grid>
+</Window>

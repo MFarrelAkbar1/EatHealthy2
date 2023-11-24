@@ -1,0 +1,14 @@
+﻿<Window x:Class="EatHealthyWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="EatHealthy" Height="350" Width="525">
+    <Grid>
+        <StackPanel Margin="10">
+            <TextBlock Text="Selamat datang di Aplikasi EatHealthy!" FontSize="18" FontWeight="Bold" Margin="0,0,0,20"/>
+            <Button Content="Kalkulator Kesehatan" Width="200" Height="30" Click="KalkulatorButton_Click"/>
+            <Button Content="Resep Makanan" Width="200" Height="30" Click="ResepButton_Click"/>
+            <Button Content="Pelacakan Asupan Cairan" Width="200" Height="30" Click="PelacakanCairanButton_Click"/>
+            <Button Content="Keluar" Width="200" Height="30" Click="KeluarButton_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
