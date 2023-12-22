@@ -1,4 +1,7 @@
-﻿using System.Windows;
+﻿using OpenAI_API;
+using System;
+using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace EatHealthyWPF
@@ -10,14 +13,42 @@ namespace EatHealthyWPF
             InitializeComponent();
         }
 
-        private void CatatAsupanCairan_Click(object sender, RoutedEventArgs e)
+        private async void CatatAsupanCairan_Click(object sender, RoutedEventArgs e)
         {
             string jumlahAirMinum = TxtJumlahAirMinum.Text;
 
             ComboBoxItem selectedJenisMinuman = (ComboBoxItem)CmbJenisMinuman.SelectedItem;
             string jenisMinuman = selectedJenisMinuman.Content.ToString();
 
-            MessageBox.Show($"Catatan Asupan Cairan:\nJumlah: {jumlahAirMinum} ml\nJenis: {jenisMinuman}");
+            try
+            {
+                var openAiApiKey = "Isi API Key di sini";
+                var openAiApi = new OpenAIAPI(openAiApiKey);
+
+                var prompt = $"Saran mentor kesehatan untuk Asupan Cairan sehari {jumlahAirMinum} dengan jenis {jenisMinuman}";
+                var response = await openAiApi.Completions.CreateCompletionAsync(
+                    model: "gpt-3.5-turbo-instruct",
+                    prompt: prompt,
+                    top_p: 0.1,
+                    max_tokens: 1000
+                );
+
+                MessageBox.Show($"Saran: {response}");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Create an instance of MainWindow and show it
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+
+            // Close the current window
+            this.Close();
+        }
+
     }
 }

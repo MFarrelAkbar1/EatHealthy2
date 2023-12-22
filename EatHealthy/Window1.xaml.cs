@@ -16,14 +16,11 @@ namespace EatHealthyWPF
             {
                 double beratBadan = double.Parse(BeratBadanTextBox.Text);
                 double tinggiBadanCm = double.Parse(TinggiBadanTextBox.Text);
-
-                // Konversi tinggi dari cm ke m
                 double tinggiBadanM = tinggiBadanCm / 100;
-
                 double hasil = HitungIndeksMassaTubuh(beratBadan, tinggiBadanM);
                 string keterangan = BerikanKeteranganIMT(hasil);
 
-                MessageBox.Show($"Indeks Massa Tubuh Anda adalah: {hasil}\n{keterangan}");
+                MessageBox.Show($"Indeks Massa Tubuh Anda adalah {hasil}\n{keterangan}");
             }
             catch (FormatException)
             {
@@ -33,6 +30,16 @@ namespace EatHealthyWPF
             {
                 MessageBox.Show($"Terjadi kesalahan: {ex.Message}");
             }
+        }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Create an instance of MainWindow and show it
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+
+            // Close the current window
+            this.Close();
         }
 
         private double HitungIndeksMassaTubuh(double beratBadan, double tinggiBadan)

@@ -2,9 +2,36 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net5.0-windows7.0</TargetFramework>
+    <TargetFramework>net5.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Window1.xml.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="NewFile1.txt" />
+    <None Remove="resources\calculator.png" />
+    <None Remove="resources\exit.png" />
+    <None Remove="resources\login.png" />
+    <None Remove="resources\spoon.png" />
+    <None Remove="resources\water.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="OpenAI" Version="1.10.0" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="resources\calculator.png" />
+    <Resource Include="resources\exit.png" />
+    <Resource Include="resources\login.png" />
+    <Resource Include="resources\spoon.png" />
+    <Resource Include="resources\water.png" />
+  </ItemGroup>
 
 </Project>

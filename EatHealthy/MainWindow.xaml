@@ -1,14 +1,75 @@
 ﻿<Window x:Class="EatHealthyWPF.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="EatHealthy" Height="350" Width="525">
-    <Grid>
-        <StackPanel Margin="10">
-            <TextBlock Text="Selamat datang di Aplikasi EatHealthy!" FontSize="18" FontWeight="Bold" Margin="0,0,0,20"/>
-            <Button Content="Kalkulator Kesehatan" Width="200" Height="30" Click="KalkulatorButton_Click"/>
-            <Button Content="Resep Makanan" Width="200" Height="30" Click="ResepButton_Click"/>
-            <Button Content="Pelacakan Asupan Cairan" Width="200" Height="30" Click="PelacakanCairanButton_Click"/>
-            <Button Content="Keluar" Width="200" Height="30" Click="KeluarButton_Click"/>
-        </StackPanel>
-    </Grid>
+        Title="EatHealthy" Height="499" Width="565" Background="#4CAF50">
+    <!-- Mengganti warna latar belakang menjadi hijau -->
+
+    <Border BorderBrush="White" BorderThickness="2" CornerRadius="20" Margin="10">
+        <Grid>
+            <TextBlock Text="Selamat datang di Aplikasi EatHealthy!" FontSize="24" FontWeight="Bold" Foreground="White" Margin="0,10,0,20" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <UniformGrid Grid.Column="0" Columns="1">
+                    <Button Click="KalkulatorButton_Click" Margin="5 55 2.5 -22.5" Background="Transparent" Foreground="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Background="#C60929" CornerRadius="10">
+                                    <Viewbox>
+                                        <StackPanel>
+                                            <Image Source="/resources/calculator.png" Stretch="Uniform"/>
+                                        </StackPanel>
+                                    </Viewbox>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                    <Button Content="Resep Makanan" Click="ResepButton_Click" Margin="5 27.5 2.5 5" Background="Transparent" Foreground="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Background="#FFDD33" CornerRadius="10">
+                                    <Viewbox>
+                                        <StackPanel>
+                                            <Image Source="/resources/spoon.png" Stretch="Uniform"/>
+                                        </StackPanel>
+                                    </Viewbox>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                </UniformGrid>
+                <UniformGrid Grid.Column="1" Columns="1">
+                    <Button Content="Pelacakan Asupan Cairan" Click="PelacakanCairanButton_Click" Margin="2.5 55 5 -22.5" Background="Transparent" Foreground="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Background="#1368CE" CornerRadius="10">
+                                    <Viewbox>
+                                        <StackPanel>
+                                            <Image Source="/resources/water.png" Stretch="Uniform" Height="210" Width="142"/>
+                                        </StackPanel>
+                                    </Viewbox>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+
+                    <Button Content="Keluar" Click="KeluarButton_Click" Margin="2.5 27.5 5 5" Background="Transparent" Foreground="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Background="#26890C" CornerRadius="10">
+                                    <Viewbox>
+                                        <StackPanel>
+                                            <Image Source="/resources/exit.png" Stretch="Uniform" Height="210" Width="142"/>
+                                        </StackPanel>
+                                    </Viewbox>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                </UniformGrid>
+            </Grid>
+        </Grid>
+    </Border>
 </Window>
