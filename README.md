@@ -1,0 +1,1 @@
+Agar program bisa bekerja seperti seharusnya, akan perlu API key yang bisa di dapat di OPENAI API, API key tersebut digunakan untuk window 2 dan window 3. Untuk SQL server, backup database SQL sudah kami sediakan cuman tidak tentu akan bisa di run di komputer lain.
