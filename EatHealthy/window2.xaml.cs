@@ -67,7 +67,7 @@ namespace EatHealthyWPF
         {
             try
             {
-                var openAiApiKey = "Isi API Key di sini";
+                var openAiApiKey = "API key";
                 var openAiApi = new OpenAIAPI(openAiApiKey);
 
                 var prompt = $"Buat satu resep sehat ntuk {userQuery} dengan bahan lalu Langkah-langkah dalam bahasa Indonesia";
