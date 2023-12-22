@@ -67,7 +67,7 @@ namespace EatHealthyWPF
         {
             try
             {
-                var openAiApiKey = "API key";
+                var openAiApiKey = "Masukkan API key di sini";
                 var openAiApi = new OpenAIAPI(openAiApiKey);
 
                 var prompt = $"Buat satu resep sehat ntuk {userQuery} dengan bahan lalu Langkah-langkah dalam bahasa Indonesia";
@@ -95,6 +95,11 @@ namespace EatHealthyWPF
             }
         }
 
+        private void ShowLoading(bool show)
+        {
+            loadingProgressBar.Visibility = show ? Visibility.Visible : Visibility.Collapsed;
+        }
+
         private async void GenerateRecipeButton_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -103,17 +108,25 @@ namespace EatHealthyWPF
 
                 if (!string.IsNullOrEmpty(userQuery))
                 {
+                    ShowLoading(true); // Show loading bar before starting the generation process
+
                     var (generatedRecipe, images) = await GenerateRecipeFromChatGPT(userQuery);
 
                     // Update UI with the generated recipe and images on the UI thread
-                    Dispatcher.Invoke(() => UpdateRecipes(userQuery, generatedRecipe, images));
+                    Dispatcher.Invoke(() =>
+                    {
+                        UpdateRecipes(userQuery, generatedRecipe, images);
+                        ShowLoading(false); // Hide loading bar after the generation process is complete
+                    });
                 }
             }
             catch (Exception ex)
             {
+                ShowLoading(false); // Make sure to hide loading bar in case of an error
                 MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
         private void UpdateRecipes(string userQuery, string generatedRecipe, List<string> imageUrls)
         {
             Recipes.Clear();
@@ -128,6 +141,11 @@ namespace EatHealthyWPF
                 Images = images
             };
             Recipes.Add(recipe);
+        }
+        private void ViewSavedRecipesButton_Click(object sender, RoutedEventArgs e)
+        {
+            SavedRecipesWindow savedRecipesWindow = new SavedRecipesWindow();
+            savedRecipesWindow.Show();
         }
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {

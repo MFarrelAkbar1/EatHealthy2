@@ -34,11 +34,8 @@ namespace EatHealthyWPF
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
-            // Create an instance of MainWindow and show it
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
-
-            // Close the current window
             this.Close();
         }
 

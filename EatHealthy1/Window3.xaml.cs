@@ -22,7 +22,7 @@ namespace EatHealthyWPF
 
             try
             {
-                var openAiApiKey = "API key";
+                var openAiApiKey = "Masukkan API key di sini";
                 var openAiApi = new OpenAIAPI(openAiApiKey);
 
                 var prompt = $"Saran mentor kesehatan untuk Asupan Cairan sehari {jumlahAirMinum} dengan jenis {jenisMinuman}";

@@ -25,25 +25,17 @@ namespace EatHealthyWPF
         }
         private void KalkulatorButton_Click(object sender, RoutedEventArgs e)
         {
+            this.Hide();
             KalkulatorKesehatan kalkulatorWindow = new KalkulatorKesehatan();
             kalkulatorWindow.Show();
-
-            // Hide the current window
-            this.Hide();
+            this.Close();
         }
 
         private void ResepButton_Click(object sender, RoutedEventArgs e)
         {
-            // Create an instance of ResepMakanan window
-            ResepMakanan resepWindow = new ResepMakanan();
-
-            // Hide the current MainWindow
             this.Hide();
-
-            // Show the ResepMakanan window
+            ResepMakanan resepWindow = new ResepMakanan();
             resepWindow.ShowDialog();
-
-            // Close the current MainWindow when the ResepMakanan window is closed
             this.Close();
         }
 
